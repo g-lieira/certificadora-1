@@ -1,0 +1,38 @@
+.pageContainer{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    height: 100vh;
+    width: 100vw;
+
+    div{
+        height: 30vh;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+        h1{
+            font-family: 'Italiana', serif;
+            font-size: 80px;
+            font-weight: 500;
+        }
+        button{
+            cursor: pointer;
+            width: 100%;
+            border-radius: 25px;
+            border: none;
+            background-color: #FFC153;
+            h2{
+                font-family: 'Lato', sans-serif;
+                font-weight: 500;
+                font-size: 25px;
+                padding-top: 10px;
+                padding-bottom: 10px;
+            }
+        }
+    }
+
+    img{
+        height: 70vh;
+    }
+}
