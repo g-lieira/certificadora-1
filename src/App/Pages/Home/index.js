@@ -16,7 +16,7 @@ const Home = () => {
       <>
       <div className="pageContainer">
         <div>
-            <h1>Bem-Vindo!</h1>
+            <h1>Bem-vindo!</h1>
             <button onClick={navigateToLogin}><h2>C O M E Ç A R</h2></button>
         </div>
         <img src={homepagephoto} alt="Ilustração" />
