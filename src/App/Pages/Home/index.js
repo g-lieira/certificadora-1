@@ -3,8 +3,6 @@ import "./styles.scss";
 import { useNavigate } from "react-router";
 import homepagephoto from '../../Assets/Homepage.png'
 
-
-
 const Home = () => {
 
     const navigate = useNavigate();

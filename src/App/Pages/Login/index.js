@@ -1,7 +1,7 @@
 import * as React from "react";
 import { Button, TextField, styled } from "@mui/material";
 
-import "./styles.css";
+import "./styles.scss";
 
 import loginImg from "../../Assets/login-img.svg";
 
