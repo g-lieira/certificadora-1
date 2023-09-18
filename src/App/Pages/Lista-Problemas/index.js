@@ -9,11 +9,59 @@ import {
   TableHead,
   TableRow,
   Paper,
-  TableSortLabel
+  TableSortLabel,
+  tableCellClasses,
+  tableClasses,
+  tableRowClasses,
 } from "@mui/material";
 
 import AvatarImg from "../../Assets/login-img.svg";
 import "./styles.scss";
+
+const StyledTableCell = styled(TableCell)(({ theme }) => ({
+  [`&.${tableCellClasses.head}`]: {
+    backgroundColor: '#B05F6D',
+    color: '#FFFFFF',
+    fontSize: 25,
+    fontFamily: 'Lato',
+    fontWeight: '500',
+    height: '50px',
+
+    '&:nth-child(1)': {
+      padding: '0 50px',
+    },
+
+    '&:nth-child(2)': {
+      textAlign: 'center',
+    },
+  },
+
+  [`&.${tableCellClasses.body}`]: {
+    fontSize: 15,
+    fontFamily: 'Lato',
+    padding: '20px 50px',
+  },
+}));
+
+const StyledTableCellLevel = styled(TableCell)(({ theme }) => ({
+  [`&.${tableCellClasses.body}`]: {
+    fontSize: 15,
+    fontFamily: 'Lato',
+    padding: '20px 50px',
+    textAlign: 'center',
+  },
+}));
+
+const StyledTableRow = styled(TableRow)(({ theme }) => ({
+  '&:nth-of-type(even)': {
+    backgroundColor: '#B4CBED',
+  },
+
+
+  '&:last-child td, &:last-child th': {
+    border: 0,
+  },
+}))
 
 function createData(exercicios, nivel) {
   return { exercicios, nivel };
@@ -83,9 +131,9 @@ function EnhancedTableHead(props) {
 
   return (
     <TableHead>
-      <TableRow>
+      <StyledTableRow>
         {headCells.map(headCell => (
-          <TableCell
+          <StyledTableCell
             key={headCell.id}
             sortDirection={orderBy === headCell.id ? order : false}
           >
@@ -96,9 +144,9 @@ function EnhancedTableHead(props) {
             >
               {headCell.label}
             </TableSortLabel>
-          </TableCell>
+          </StyledTableCell>
         ))}
-      </TableRow>
+      </StyledTableRow>
     </TableHead>
   );
 }
@@ -148,46 +196,49 @@ export default function ListaProblemas() {
         </div>
       </div>
 
-      <div className={classes.root}>
-        <Paper className={classes.paper}>
-          <TableContainer>
-            <Table
-              className={classes.table}
-              aria-labelledby="tableTitle"
-              size={"medium"}
-              aria-label="enhanced table"
-            >
-              <EnhancedTableHead
-                classes={classes}
-                order={order}
-                orderBy={orderBy}
-                onRequestSort={handleRequestSort}
-                rowCount={rows.length}
-              />
-              <TableBody>
-                {stableSort(rows, getComparator(order, orderBy)).map(
-                  (row, index) => {
-                    const labelId = `enhanced-table-checkbox-${index}`;
+      <div className="table-container">
+        <div className={classes.root}>
+          <Paper className={classes.paper}>
+            <TableContainer>
+              <Table
+                stickyHeader 
+                className={classes.table}
+                aria-labelledby="tableTitle"
+                size={"medium"}
+                aria-label="enhanced table"
+              >
+                <EnhancedTableHead
+                  classes={classes}
+                  order={order}
+                  orderBy={orderBy}
+                  onRequestSort={handleRequestSort}
+                  rowCount={rows.length}
+                />
+                <TableBody>
+                  {stableSort(rows, getComparator(order, orderBy)).map(
+                    (row, index) => {
+                      const labelId = `enhanced-table-checkbox-${index}`;
 
-                    return (
-                      <TableRow hover>
-                        <TableCell
-                          component="th"
-                          id={labelId}
-                          scope="row"
-                          padding="none"
-                        >
-                          {row.exercicios}
-                        </TableCell>
-                        <TableCell align="right">{row.nivel}</TableCell>
-                      </TableRow>
-                    );
-                  }
-                )}
-              </TableBody>
-            </Table>
-          </TableContainer>
-        </Paper>
+                      return (
+                        <StyledTableRow hover>
+                          <StyledTableCell
+                            component="th"
+                            id={labelId}
+                            scope="row"
+                            padding="none"
+                          >
+                            {row.exercicios}
+                          </StyledTableCell>
+                          <StyledTableCellLevel align="right">{row.nivel}</StyledTableCellLevel>
+                        </StyledTableRow>
+                      );
+                    }
+                  )}
+                </TableBody>
+              </Table>
+            </TableContainer>
+          </Paper>
+        </div>
       </div>
     </div>
   );
