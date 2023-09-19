@@ -11,8 +11,9 @@ import {
   Paper,
   TableSortLabel,
   tableCellClasses,
-  tableClasses,
-  tableRowClasses,
+  Modal,
+  Button,
+  Box,
 } from "@mui/material";
 
 import AvatarImg from "../../Assets/login-img.svg";
@@ -62,6 +63,45 @@ const StyledTableRow = styled(TableRow)(({ theme }) => ({
     border: 0,
   },
 }))
+
+const useStyles = styled(theme => ({
+  root: {
+    width: "100%"
+  },
+  paper: {
+    width: "100%",
+    marginBottom: theme.spacing(2)
+  },
+  table: {
+    minWidth: 750
+  },
+  visuallyHidden: {
+    border: 0,
+    clip: "rect(0 0 0 0)",
+    height: 1,
+    margin: -1,
+    overflow: "hidden",
+    padding: 0,
+    position: "absolute",
+    top: 20,
+    width: 1
+  }
+}))
+
+const style = {
+  position: 'absolute',
+  top: '50%',
+  left: '50%',
+  transform: 'translate(-50%, -50%)',
+  bgcolor: '#FFFFFF',
+  border: 'none',
+  boxShadow: 25,
+  fontFamily: 'Lato',
+  display: 'flex',
+  flexDirection: 'column',
+  alignItems: 'center',
+  justifyContent: 'space-evenly',
+};
 
 function createData(exercicios, nivel) {
   return { exercicios, nivel };
@@ -151,40 +191,32 @@ function EnhancedTableHead(props) {
   );
 }
 
-const useStyles = styled(theme => ({
-  root: {
-    width: "100%"
-  },
-  paper: {
-    width: "100%",
-    marginBottom: theme.spacing(2)
-  },
-  table: {
-    minWidth: 750
-  },
-  visuallyHidden: {
-    border: 0,
-    clip: "rect(0 0 0 0)",
-    height: 1,
-    margin: -1,
-    overflow: "hidden",
-    padding: 0,
-    position: "absolute",
-    top: 20,
-    width: 1
-  }
-}));
-
 export default function ListaProblemas() {
   const classes = useStyles();
   const [order, setOrder] = React.useState("asc");
   const [orderBy, setOrderBy] = React.useState("niveis");
+  const [open, setOpen] = React.useState(false);
+  const [open2, setOpen2] = React.useState(false);
+
+  const handleOpen = () => {
+    setOpen(true);
+  };
+  const handleClose = () => {
+    setOpen(false);
+  };
+
+  const handleOpen2 = () => {
+    setOpen2(true);
+  };
+  const handleClose2 = () => {
+    setOpen2(false);
+  };
 
   const handleRequestSort = (event, property) => {
     const isAsc = orderBy === property && order === "asc";
     setOrder(isAsc ? "desc" : "asc");
     setOrderBy(property);
-  };
+  }
 
   return (
     <div className="lista-container">
@@ -199,7 +231,22 @@ export default function ListaProblemas() {
       <div className="table-container">
         <div className={classes.root}>
           <Paper className={classes.paper}>
-            <TableContainer>
+            <TableContainer
+              sx={{ 
+                maxHeight: 460,
+
+                "&::-webkit-scrollbar": {
+                  width: 8
+                  },
+                  "&::-webkit-scrollbar-track": {
+                  backgroundColor: "#B05F6D"
+                  },
+                  "&::-webkit-scrollbar-thumb": {
+                  backgroundColor: "#EFDFE2",
+                  borderRadius: 0
+                  }
+              }}
+            >
               <Table
                 stickyHeader 
                 className={classes.table}
@@ -240,6 +287,59 @@ export default function ListaProblemas() {
           </Paper>
         </div>
       </div>
+
+      <div className="modalExercicioResolvido">
+        <Button onClick={handleOpen}>Exercício já resolvido</Button>
+        <Modal
+          open={open}
+          onClose={handleClose}
+          aria-labelledby="parent-modal-title"
+          aria-describedby="parent-modal-description"
+        >
+          <Box 
+            sx={{ 
+              ...style,
+            }}
+            className='bigModal'
+          >
+            <h2 id="parent-modal-title">VOCÊ JÁ RESOLVEU!</h2>
+            <p id="parent-modal-description">
+              O exercício escolhido já foi resolvido anteriormente, você quer refazer?
+            </p>
+
+            <div className="modalButtons">
+              <Button className='naoButton' onClick={handleClose}>NÃO...</Button>
+              <Button className='simButton'>SIM!</Button>
+            </div>
+          </Box>
+        </Modal>
+      </div>
+
+      <div className="modalPularNivel">
+        <Button onClick={handleOpen2}>Pular nivel</Button>
+        <Modal
+          open={open2}
+          onClose={handleClose2}
+          aria-labelledby="parent-modal-title"
+          aria-describedby="parent-modal-description"
+        >
+          <Box 
+            sx={{ 
+              ...style,
+            }}
+            className='bigModal'
+          >
+            <h2 id="parent-modal-title">VOCÊ ESTÁ PULANDO DE NÍVEL!</h2>
+            <p id="parent-modal-description">
+              <b>Lembre-se:</b>Você só pode fazer um exercício depois que 
+              passar pelos níveis anteriores, por exemplo: para fazer um 
+              exercício nível 3 é preciso fazer um exercício nível 1 e 
+              outro de nível 2 antes!
+            </p>
+          </Box>
+        </Modal>
+      </div>
+      
     </div>
   );
 }
