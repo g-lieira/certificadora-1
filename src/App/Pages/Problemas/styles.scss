@@ -1,0 +1,105 @@
+.prob-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    
+    .prob-header {
+        width: 90%;
+        padding: 50px 30px;
+        display: flex;
+        align-items: center;
+        justify-content: right;
+
+    .icon-perfil {
+        display: flex;
+        align-items: center;
+        justify-content: space-around;
+        width: 15%;
+        border: 3px solid #B05F6D;
+        padding: 10px;
+        border-radius: 15px;
+        cursor: pointer;
+    
+        &:hover {
+          border-color: #47B39D;
+        }
+      }
+    }
+
+    .prob-question {
+        width: 100%;;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+        gap: 25px;
+
+        h1 {
+            font-family: 'Lato';
+            font-size: 30px;
+            font-weight: 700;
+            color: #FFC153;
+        }
+
+        h3 {
+            font-family: 'Lato';
+            font-size: 20px;
+            font-style: italic;
+            font-weight: 400;
+            color: #202020;
+        }
+
+        p {
+            font-family: 'Lato';
+            width: 80%;
+            font-size: 15px;
+            font-weight: 400;
+            text-align: center;
+            line-height: 30px;
+        }
+    }
+
+    .prob-input {
+        width: 80%;
+        display: flex;
+        align-items: flex-start;
+        flex-direction: column;
+        justify-content: center;
+        margin-top: 35px;
+        gap: 15px;
+    
+        .question-button {
+            width: 100%;
+            display: flex;
+            align-items: center;
+            gap: 30px;
+
+            .positive-feedback {
+                span {
+                    border-left: 3px solid var(--Blue-green, #47B39D);
+                    background: #C8E8E2;
+                    padding: 10px 35px;
+
+                    font-family: 'Lato';
+                    color: #47B39D;
+                    font-size: 15px;
+                }
+            }
+
+            .negative-feedback {
+                span {
+                    border-left: 3px solid var(--Red, #EB6B56);
+                    background: #F9D3CC;
+                    padding: 10px 35px;
+
+                    font-family: 'Lato';
+                    color: #EB6B56;
+                    font-size: 15px;
+                }
+            }
+        }
+    }
+}
+
