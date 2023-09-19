@@ -222,8 +222,8 @@ export default function ListaProblemas() {
     <div className="lista-container">
       <div className="lista-header">
         <h2>Hora de praticar!</h2>
-        <div className="icon-perfil">
-          <Avatar alt="Remy Sharp" src={AvatarImg} />
+        <div className="icon-perfil" onClick={() => {console.log('oi')}}>
+          <Avatar alt="Remy Sharp" src={AvatarImg}/>
           <p>Mariana Oliveira</p>
         </div>
       </div>
@@ -267,7 +267,11 @@ export default function ListaProblemas() {
                       const labelId = `enhanced-table-checkbox-${index}`;
 
                       return (
-                        <StyledTableRow hover>
+                        <StyledTableRow 
+                          hover 
+                          key={index} 
+                          onClick={() => {console.log(`oi ${index + 1}`)}}
+                        >
                           <StyledTableCell
                             component="th"
                             id={labelId}
