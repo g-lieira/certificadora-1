@@ -107,9 +107,7 @@ export default function Problemas() {
                             }
                         ]}
                         onClick={toggleResult}
-                    >
-                       Enviar
-                    </Button>
+                    >Enviar</Button>
                     {rightAnswer && (
                         <div className='positive-feedback'>
                             <span>
