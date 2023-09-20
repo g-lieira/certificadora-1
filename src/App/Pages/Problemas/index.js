@@ -1,5 +1,6 @@
 import * as React from 'react';
 import { Button, TextField, styled, Avatar,  } from "@mui/material";
+import { useNavigate } from "react-router";
 
 import "./styles.scss";
 
@@ -55,10 +56,15 @@ export default function Problemas() {
         }
     }
 
+    const navigate = useNavigate();
+    function navigateToPerfil(){
+        navigate("/perfil");
+      }
+
     return (
         <div className='prob-container'>
             <div className='prob-header'>
-                <div className="icon-perfil" onClick={() => {console.log('oi teste')}}>
+                <div className="icon-perfil" onClick={navigateToPerfil}>
                     <Avatar alt="Remy Sharp" src={AvatarImg}/>
                     <p>Mariana Oliveira</p>
                 </div>

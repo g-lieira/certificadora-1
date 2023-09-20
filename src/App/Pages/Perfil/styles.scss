@@ -91,8 +91,12 @@
                         width: 60px;
                         height: 60px; 
 
-                        circle {
-                            fill:#47B39D;
+                        .resolved {
+                            fill: #47B39D;
+                        }
+
+                        .not-resolved {
+                            fill: #EB6B56;
                         }
                     }
 

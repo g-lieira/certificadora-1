@@ -15,6 +15,7 @@ import {
   Button,
   Box,
 } from "@mui/material";
+import { useNavigate } from "react-router";
 
 import AvatarImg from "../../Assets/login-img.svg";
 import "./styles.scss";
@@ -218,11 +219,16 @@ export default function ListaProblemas() {
     setOrderBy(property);
   }
 
+  const navigate = useNavigate();
+    function navigateToPerfil(){
+        navigate("/perfil");
+      }
+
   return (
     <div className="lista-container">
       <div className="lista-header">
         <h2>Hora de praticar!</h2>
-        <div className="icon-perfil" onClick={() => {console.log('oi')}}>
+        <div className="icon-perfil" onClick={navigateToPerfil}>
           <Avatar alt="Remy Sharp" src={AvatarImg}/>
           <p>Mariana Oliveira</p>
         </div>
