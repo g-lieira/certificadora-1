@@ -16,6 +16,9 @@ import {
   Box,
 } from "@mui/material";
 import { useNavigate } from "react-router";
+import { useEffect, useState }  from "react";
+import { db } from "../../Firebase/firebase-config";
+import { collection, doc, getDocs, getDoc, setDoc, updateDoc, deleteDoc } from "firebase/firestore";
 
 import AvatarImg from "../../Assets/login-img.svg";
 import "./styles.scss";
@@ -108,18 +111,7 @@ function createData(exercicios, nivel) {
   return { exercicios, nivel };
 }
 
-const rows = [
-  createData("A Enunciado do exercício aqui até onde caber", 1),
-  createData("B Enunciado do exercício aqui até onde caber", 18),
-  createData("C  Enunciado do exercício aqui até onde caber", 15),
-  createData("H Enunciado do exercício aqui até onde caber", 23),
-  createData("E Enunciado do exercício aqui até onde caber", 26),
-  createData("X Enunciado do exercício aqui até onde caber", 29),
-  createData("P Enunciado do exercício aqui até onde caber", 28),
-  createData("M Enunciado do exercício aqui até onde caber", 36),
-  createData("T Enunciado do exercício aqui até onde caber", 34),
-  createData("S Enunciado do exercício aqui até onde caber", 33),
-];
+var rows = [];
 
 function descendingComparator(a, b, orderBy) {
   if (b[orderBy] < a[orderBy]) {
@@ -199,6 +191,33 @@ export default function ListaProblemas() {
   const [open, setOpen] = React.useState(false);
   const [open2, setOpen2] = React.useState(false);
 
+  // importando informações do backend
+
+  const questionCollectionRef = collection(db, "index");
+  const [questions, setQuestions] = useState([]);
+
+  useEffect(()=>{
+
+    const getQuestions= async () => {
+      const data = await getDocs(questionCollectionRef);
+      setQuestions(data.docs.map((doc) => ({ ...doc.data(), id: doc.id })));
+    };
+    getQuestions();
+  },[]);
+
+  questions.map(question=>{
+    rows.unshift(createData(question.enunciado, question.nivel));
+    return null;
+  });
+
+  const jsonObject = rows.map(JSON.stringify);
+  const uniqueSet = new Set(jsonObject);
+  const uniqueArray = Array.from(uniqueSet).map(JSON.parse);
+
+  rows = uniqueArray;
+
+  // importando informações do backend
+
   const handleOpen = () => {
     setOpen(true);
   };
@@ -227,7 +246,7 @@ export default function ListaProblemas() {
   return (
     <div className="lista-container">
       <div className="lista-header">
-        <h2>Hora de praticar!</h2>
+        <h2 onClick={()=>{console.log(rows); console.log(questions)}}>Hora de praticar!</h2>
         <div className="icon-perfil" onClick={navigateToPerfil}>
           <Avatar alt="Remy Sharp" src={AvatarImg}/>
           <p>Mariana Oliveira</p>
