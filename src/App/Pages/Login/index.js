@@ -2,6 +2,7 @@ import * as React from "react";
 import { Button, TextField, styled } from "@mui/material"; 
 
 import "./styles.scss";
+import { useNavigate } from "react-router";
 
 import loginImg from "../../Assets/login-img.svg";
 
@@ -30,6 +31,12 @@ const Input = styled(TextField)`
 `
 
 function Login() {
+  const navigate = useNavigate();
+  function navigateToListaProblemas(){
+    navigate("/lista-problemas");
+  }
+
+
   return (
     <div className="login-container">
       <h1>Bem-vindo!</h1>
@@ -53,6 +60,7 @@ function Login() {
           margin="normal"
         />
         <Button 
+          onClick={navigateToListaProblemas}
           variant="contained" 
           sx={[
             { 

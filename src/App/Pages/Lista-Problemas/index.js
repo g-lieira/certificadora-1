@@ -44,7 +44,7 @@ const StyledTableCell = styled(TableCell)(({ theme }) => ({
   [`&.${tableCellClasses.body}`]: {
     fontSize: 15,
     fontFamily: 'Lato',
-    padding: '20px 50px',
+    padding: '20px 100px 20px 50px',
   },
 }));
 
@@ -52,7 +52,7 @@ const StyledTableCellLevel = styled(TableCell)(({ theme }) => ({
   [`&.${tableCellClasses.body}`]: {
     fontSize: 15,
     fontFamily: 'Lato',
-    padding: '20px 50px',
+    padding: '20px 80px',
     textAlign: 'center',
   },
 }));
@@ -218,8 +218,13 @@ export default function ListaProblemas() {
 
   // importando informações do backend
 
-  const handleOpen = () => {
-    setOpen(true);
+  const handleOpen = index => () => {
+    if(index%2 == 0) {
+      setOpen(true);
+    }
+    else {
+      setOpen2(true);
+    }
   };
   const handleClose = () => {
     setOpen(false);
@@ -295,7 +300,7 @@ export default function ListaProblemas() {
                         <StyledTableRow 
                           hover 
                           key={index} 
-                          onClick={() => {console.log(`oi ${index + 1}`)}}
+                          onClick={handleOpen(index)}
                         >
                           <StyledTableCell
                             component="th"
@@ -318,7 +323,6 @@ export default function ListaProblemas() {
       </div>
 
       <div className="modalExercicioResolvido">
-        <Button onClick={handleOpen}>Exercício já resolvido</Button>
         <Modal
           open={open}
           onClose={handleClose}
@@ -345,7 +349,6 @@ export default function ListaProblemas() {
       </div>
 
       <div className="modalPularNivel">
-        <Button onClick={handleOpen2}>Pular nivel</Button>
         <Modal
           open={open2}
           onClose={handleClose2}
