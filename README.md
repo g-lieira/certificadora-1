@@ -118,7 +118,6 @@ Deste modo, o design pode ser acessado através deste [link](https://www.figma.c
 git clone https://github.com/g-lieira/certificadora-1.git
 ```
 
-
 2. Abrir a pasta do projeto em seu editor de código
 
 
