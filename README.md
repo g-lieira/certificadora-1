@@ -6,7 +6,7 @@
 
 Este projeto será composto pelo desenvolvimento de um sistema web com o objetivo de auxiliar no ensino-aprendizagem de Física, podendo ser utilizado por docentes e discentes do Ensino Médio.
 
-❗ <b> Para a tela de Login não é necessário inserir nenhum dado nos campos disponíveis, basta clicar no botão 'Entrar' <b> ❗
+❗ <b>Para o login não é necessário inserir nenhum dado nos campos disponíveis, basta clicar no botão 'Entrar'<b> ❗
 
   
 <br>
