@@ -118,17 +118,15 @@ Deste modo, o design pode ser acessado através deste [link](https://www.figma.c
 git clone https://github.com/g-lieira/certificadora-1.git
 ```
 
-  
 
 2. Abrir a pasta do projeto em seu editor de código
 
-  
 
 3. Instalar todas as dependências do projeto
 
-3.1. Esta etapa pode ser feita no terminal do projeto
+    3.1. Esta etapa pode ser feita no terminal do projeto
 
-> Ex: No Visual Studio Code basta utilizar o atalho Ctrl + J
+        Ex: No Visual Studio Code basta utilizar o atalho Ctrl + J
 
 ```
 npm install --global yarn
