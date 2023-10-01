@@ -31,6 +31,7 @@ const StyledTableCell = styled(TableCell)(({ theme }) => ({
     fontFamily: 'Lato',
     fontWeight: '500',
     height: '50px',
+    cursor: 'auto',
 
     '&:nth-child(1)': {
       padding: '0 50px',
@@ -146,7 +147,12 @@ const headCells = [
     disablePadding: true,
     label: "Exercícios"
   },
-  { id: "nivel", numeric: true, disablePadding: false, label: "Nível" },
+  { 
+    id: "nivel", 
+    numeric: true, 
+    disablePadding: false, 
+    label: "Nível" 
+  },
 ];
 
 function EnhancedTableHead(props) {
@@ -165,18 +171,22 @@ function EnhancedTableHead(props) {
   return (
     <TableHead>
       <StyledTableRow>
-        {headCells.map(headCell => (
+        {headCells.map((headCell) => (
           <StyledTableCell
             key={headCell.id}
             sortDirection={orderBy === headCell.id ? order : false}
           >
-            <TableSortLabel
-              active={orderBy === headCell.id}
-              direction={orderBy === headCell.id ? order : "asc"}
-              onClick={createSortHandler(headCell.id)}
-            >
-              {headCell.label}
-            </TableSortLabel>
+            {headCell.id === 'exercicios' ? (
+              <div>{headCell.label}</div>
+            ) : (
+              <TableSortLabel
+                active={orderBy === headCell.id}
+                direction={orderBy === headCell.id ? order : 'asc'}
+                onClick={createSortHandler(headCell.id)}
+              >
+                {headCell.label}
+              </TableSortLabel>
+            )}
           </StyledTableCell>
         ))}
       </StyledTableRow>
@@ -187,7 +197,7 @@ function EnhancedTableHead(props) {
 export default function ListaProblemas() {
   const classes = useStyles();
   const [order, setOrder] = React.useState("asc");
-  const [orderBy, setOrderBy] = React.useState("niveis");
+  const [orderBy, setOrderBy] = React.useState("exercicios");
   const [open, setOpen] = React.useState(false);
   const [open2, setOpen2] = React.useState(false);
 
@@ -269,11 +279,11 @@ export default function ListaProblemas() {
                   width: 8
                   },
                   "&::-webkit-scrollbar-track": {
-                  backgroundColor: "#B05F6D"
+                  backgroundColor: "#B05F5F",
                   },
                   "&::-webkit-scrollbar-thumb": {
                   backgroundColor: "#EFDFE2",
-                  borderRadius: 0
+                  borderRadius: 50
                   }
               }}
             >
