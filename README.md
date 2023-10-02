@@ -8,7 +8,13 @@ Este projeto será composto pelo desenvolvimento de um sistema web com o objetiv
 
 ❗ <b>Para o login não é necessário inserir nenhum dado nos campos disponíveis, basta clicar no botão 'Entrar'<b> ❗
 
-  
+<br>
+
+## 🗳️ Repositório
+
+O repositório contendo o código deste projeto pode ser acessado através deste [link](https://github.com/g-lieira/certificadora-1.git).
+
+
 <br>
 
 ## 👨‍💻 Equipe
@@ -118,7 +124,6 @@ Deste modo, o design pode ser acessado através deste [link](https://www.figma.c
 
 git clone https://github.com/g-lieira/certificadora-1.git
 ```
-
 2. Abrir a pasta do projeto em seu editor de código
 
 
