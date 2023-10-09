@@ -70,10 +70,11 @@ function Login() {
             margin: '25px 0',
             fontFamily: 'Lato', 
             fontSize: '18px',
-            fontWeight: '800',
+            fontWeight: '600',
             backgroundColor: '#6997DC',
             color: '#202020',
             letterSpacing: '5px',
+            fontFamily: 'Lato',
 
             ":hover": {
               backgroundColor: "#47B39D",
