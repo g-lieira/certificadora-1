@@ -90,7 +90,7 @@ Para a implementação do projeto a equipe utilizará estruturas de dados para d
 
   
 
-Ademais, optou-se por utilizar [React JS](https://pt-br.legacy.reactjs.org) para construção, Front-end, da aplicação para melhor experiência do usuário, juntamente com a biblioteca [Material UI](https://mui.com), a qual oferece diferentes componentes que auxiliaram na construção das interfaces do sistema.
+Ademais, optou-se por utilizar [React JS](https://pt-br.legacy.reactjs.org) para construção, Front-end, da aplicação para melhor experiência do usuário, juntamente com a biblioteca [Material UI](https://mui.com), a qual oferece diferentes componentes que auxiliaram na construção das interfaces do sistema, e com o [React Router](https://www.w3schools.com/react/react_router.asp) para controle de rotas e desenvolvimento de uma aplicação padrão SPA (Single Page Application).
 
   
 
