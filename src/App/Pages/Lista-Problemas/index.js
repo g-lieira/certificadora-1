@@ -294,7 +294,7 @@ export default function ListaProblemas() {
     }else if(questionNumber>=5 && questionNumber<=7){
       let counter=0;
       array.map(item=>{
-        if(Number(item)>=0 && Number(item)<=4){
+        if(Number(item)>0 && Number(item)<=4){
           counter++;
         }
       });
