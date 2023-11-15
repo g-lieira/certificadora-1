@@ -1,8 +1,12 @@
 import * as React from "react";
+import {useState, useEffect, useContext} from 'react'
 import { Button, TextField, styled } from "@mui/material"; 
 
 import "./styles.scss";
 import { useNavigate } from "react-router";
+import { AuthContext } from "../../Context/AuthContext";
+import { db } from "../../Firebase/firebase-config";
+import { collection, getDocs } from "firebase/firestore";
 
 import loginImg from "../../Assets/login-img.svg";
 
@@ -31,9 +35,46 @@ const Input = styled(TextField)`
 `
 
 function Login() {
+
+  const userCollectionRef = collection(db, "users");
+  const [users, setUsers] = useState([]);
+
+  useEffect(()=>{
+    const getUsers= async () => {
+      const data = await getDocs(userCollectionRef);
+      setUsers(data.docs.map((doc) => ({ ...doc.data(), id: doc.id })));
+    };
+    getUsers();
+  },[]);
+
   const navigate = useNavigate();
-  function navigateToListaProblemas(){
-    navigate("/lista-problemas");
+  const [name, setName] = useState("");
+  const [email, setEmail] = useState("");
+  const { setAuth, auth, userId, setUserId } = useContext(AuthContext);
+
+  const handleName = event =>{
+    setName(event.target.value);
+  }
+  const handleEmail = event =>{
+    setEmail(event.target.value);
+  }
+
+  function verifyUser(){
+    let found = false;
+    let UID = undefined;
+    users.map(user=>{
+      if(user.nome==name && user.email==email){
+        found = true;
+        UID = user.id;
+      }
+    });
+    if(found==true){
+      setAuth(true);
+      setUserId(UID);
+      navigate("/lista-problemas");
+    }else{
+      alert("Usuário não encontrado!");
+    }
   }
 
 
@@ -51,6 +92,7 @@ function Login() {
           label="Nome"
           variant="outlined"
           margin="normal"
+          onChange={handleName}
         />
         <Input
           fullWidth
@@ -58,9 +100,10 @@ function Login() {
           label="E-mail"
           variant="outlined"
           margin="normal"
+          onChange={handleEmail}
         />
         <Button 
-          onClick={navigateToListaProblemas}
+          onClick={verifyUser}
           variant="contained" 
           sx={[
             { 

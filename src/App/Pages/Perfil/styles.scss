@@ -10,7 +10,6 @@
         display: flex;
         align-items: center;
         justify-content: center;
-        margin: 40px 0;
         gap: 140px;   
 
         img {
@@ -55,21 +54,23 @@
         bottom: 0;
 
         .title {
-            width: -webkit-fill-available;
+            width: 100%;
             border-radius: 50px 50px 0px 0px;
             background-color: #EFDFE2;
-            padding: 20px 0 20px 90px;
 
             h3 {
+                width: fit-content;
                 font-family: 'Lato';
                 font-size: 20px;
                 font-weight: 700;
+                padding: 5px 0 5px 90px;
                 color: #B05F6D;
             }
         }
         
         .questions-asked {
             display: flex;
+            width: 100%;
             align-items: center;
             justify-content: center;
             gap: 150px;

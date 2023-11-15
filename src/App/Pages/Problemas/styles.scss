@@ -59,6 +59,13 @@
             text-align: center;
             line-height: 30px;
         }
+        ul{
+            font-family: 'Lato';
+            font-size: 15px;
+            list-style-type: none;
+            padding: 0;
+            width: 80%;
+        }
     }
 
     .prob-input {
@@ -69,14 +76,24 @@
         justify-content: center;
         margin-top: 35px;
         gap: 15px;
+
+        div{
+            min-width: 100% !important; 
+        }
     
         .question-button {
             width: 100%;
             display: flex;
             align-items: center;
+            justify-content: space-between;
             gap: 30px;
 
+            button{
+                width: fit-content !important;
+            }
+
             .positive-feedback {
+                min-width: fit-content !important;
                 span {
                     border-left: 3px solid var(--Blue-green, #47B39D);
                     background: #C8E8E2;
@@ -89,6 +106,7 @@
             }
 
             .negative-feedback {
+                min-width: fit-content !important;
                 span {
                     border-left: 3px solid var(--Red, #EB6B56);
                     background: #F9D3CC;

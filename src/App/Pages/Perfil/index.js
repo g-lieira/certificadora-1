@@ -1,5 +1,9 @@
 import * as React from 'react';
 import { Button, TextField, styled, Avatar,  } from "@mui/material";
+import { useEffect, useState, useContext }  from "react";
+import { AuthContext } from "../../Context/AuthContext";
+import { db } from "../../Firebase/firebase-config";
+import { collection, getDocs, getDoc, doc } from "firebase/firestore";
 
 import "./styles.scss";
 import loginImg from "../../Assets/login-img.svg";
@@ -7,6 +11,15 @@ import loginImg from "../../Assets/login-img.svg";
 
 
 export default function Perfil() {
+    const {userId} = useContext(AuthContext);
+    const [userName, setUserName] = useState("");
+
+    useEffect(()=>{
+        getDoc(doc(db, "users", userId)).then(docSnap => {
+          setUserName(docSnap.data().nome);
+        })
+    },[]);
+
     const resolved = true; //deve ser alterado para receber do bd (identificando o id também)
 
     //porcentagem deve ser alterado de acordo com a quantidade de ex feitos e não feitos
@@ -30,12 +43,14 @@ export default function Perfil() {
                     alt="ilustração de um fastama, utilizado como avatar"
                 />
                 <div>
-                    <h1>Olá Pessoinha!</h1>
+                    <h1>Olá {userName}!</h1>
                     <p>Você possui: XX pontos</p>
                 </div>
             </div>
             <div className='progress'>
-                <div className='title'><h3>PROBLEMAS JÁ RESOLVIDOS</h3></div>
+                <div className='title'>
+                    <h3>PROBLEMAS JÁ RESOLVIDOS</h3>
+                </div>
                 <div className='questions-asked'>
                     <div className='questions-check'>
                         <div>

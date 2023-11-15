@@ -16,9 +16,10 @@ import {
   Box,
 } from "@mui/material";
 import { useNavigate } from "react-router";
-import { useEffect, useState }  from "react";
+import { useEffect, useState, useContext }  from "react";
+import { AuthContext } from "../../Context/AuthContext";
 import { db } from "../../Firebase/firebase-config";
-import { collection, doc, getDocs, getDoc, setDoc, updateDoc, deleteDoc } from "firebase/firestore";
+import { collection, getDocs, getDoc, doc } from "firebase/firestore";
 
 import AvatarImg from "../../Assets/login-img.svg";
 import "./styles.scss";
@@ -200,6 +201,10 @@ export default function ListaProblemas() {
   const [orderBy, setOrderBy] = React.useState("exercicios");
   const [open, setOpen] = React.useState(false);
   const [open2, setOpen2] = React.useState(false);
+  const {userId} = useContext(AuthContext);
+  const [userQuestions, setUserQuestions] = useState("");
+  const {setCurrentQuestion} = useContext(AuthContext);
+  const [userName, setUserName] = useState("");
 
   // importando informações do backend
 
@@ -207,6 +212,14 @@ export default function ListaProblemas() {
   const [questions, setQuestions] = useState([]);
 
   useEffect(()=>{
+    getDoc(doc(db, "users", userId)).then(docSnap => {
+      setUserName(docSnap.data().nome);
+      try{
+        setUserQuestions(docSnap.data().questoes);
+      }catch{
+        setUserQuestions("0");
+      }
+    })
 
     const getQuestions= async () => {
       const data = await getDocs(questionCollectionRef);
@@ -228,13 +241,8 @@ export default function ListaProblemas() {
 
   // importando informações do backend
 
-  const handleOpen = index => () => {
-    if(index%2 == 0) {
-      setOpen(true);
-    }
-    else {
-      setOpen2(true);
-    }
+  const handleOpen = () => {
+    setOpen(true);
   };
   const handleClose = () => {
     setOpen(false);
@@ -258,13 +266,70 @@ export default function ListaProblemas() {
         navigate("/perfil");
       }
 
+
+  function modalRedirect(){
+    navigate("/problema");
+  }
+
+  function redirectToProblem(statement){
+    let questionId;
+    let questionNumber;
+    let isAlreadyDone=false;
+    let isValid=false;
+    let array = userQuestions.split("-");
+    questions.map(question =>{
+      if(question.enunciado==statement){
+        questionId = question.id;
+        questionNumber = Number(question.numero);
+      }
+    })
+    setCurrentQuestion(questionId);
+    array.map(item=>{
+      if(Number(item)==questionNumber){
+        isAlreadyDone=true;
+      }
+    });
+    if(questionNumber>=0 && questionNumber<=4){
+      isValid=true;
+    }else if(questionNumber>=5 && questionNumber<=7){
+      let counter=0;
+      array.map(item=>{
+        if(Number(item)>=0 && Number(item)<=4){
+          counter++;
+        }
+      });
+      if(counter >=1){
+        isValid=true;
+      }
+    }else if(questionNumber>=8 && questionNumber<=10){
+      let counter=0;
+      array.map(item=>{
+        if(Number(item)>=5 && Number(item)<=7){
+          counter++;
+        }
+      });
+      if(counter >=1){
+        isValid=true;
+      }
+    }
+    if(isAlreadyDone==true){
+      handleOpen();
+    }
+    if(isValid==false){
+      handleOpen2();
+    }
+    if(isAlreadyDone==false && isValid==true){
+      navigate("/problema");
+    }
+  }
+
   return (
     <div className="lista-container">
       <div className="lista-header">
-        <h2 onClick={()=>{console.log(rows); console.log(questions)}}>Hora de praticar!</h2>
+        <h2>Hora de praticar!</h2>
         <div className="icon-perfil" onClick={navigateToPerfil}>
           <Avatar alt="Remy Sharp" src={AvatarImg}/>
-          <p>Mariana Oliveira</p>
+          <p>{userName}</p>
         </div>
       </div>
 
@@ -310,13 +375,13 @@ export default function ListaProblemas() {
                         <StyledTableRow 
                           hover 
                           key={index} 
-                          onClick={handleOpen(index)}
                         >
                           <StyledTableCell
                             component="th"
                             id={labelId}
                             scope="row"
                             padding="none"
+                            onClick={(e)=>{redirectToProblem(e.target.innerHTML)}}
                           >
                             {row.exercicios}
                           </StyledTableCell>
@@ -352,7 +417,7 @@ export default function ListaProblemas() {
 
             <div className="modalButtons">
               <Button className='naoButton' onClick={handleClose}>NÃO...</Button>
-              <Button className='simButton'>SIM!</Button>
+              <Button className='simButton' onClick={modalRedirect}>SIM!</Button>
             </div>
           </Box>
         </Modal>

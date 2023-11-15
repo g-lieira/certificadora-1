@@ -1,12 +1,12 @@
-import Routes from './routes.js';
-import { BrowserRouter } from "react-router-dom";
+import React, {useContext} from 'react';
+import PublicRoutes from './Routes/publicRoutes';
+import PrivateRoutes from './Routes/privateRoutes';
+import { AuthContext } from './Context/AuthContext';
 
 function App() {
-  return (
-    <BrowserRouter>
-        <Routes/> 
-    </BrowserRouter>
-  );
+  const { auth } = useContext(AuthContext);
+  console.log("auth", auth);
+  return auth ? <PrivateRoutes /> : <PublicRoutes />
 }
 
 export default App;
