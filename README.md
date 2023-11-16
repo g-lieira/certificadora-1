@@ -8,14 +8,22 @@ Este projeto será composto pelo desenvolvimento de um sistema web com o objetiv
 
 ❗ Vídeo de apresentação parcial do projeto: [link](https://drive.google.com/file/d/1lD7Bdwz3aVLJGXDZiy6gxUNpux3Zuswe/view?usp=sharing)
 
-❗ <b>Para o login não é necessário inserir nenhum dado nos campos disponíveis, basta clicar no botão 'Entrar'</b> ❗
-
 <br>
 
 ## 🗳️ Repositório
 
 O repositório contendo o código deste projeto pode ser acessado através deste [link](https://github.com/g-lieira/certificadora-1.git).
 
+<br>
+
+
+## 🔑 Credenciais para login
+
+Para acessar a página do sistema é necessário que o usuário realize seu login através da inserção de dados nos campos disponíveis: user e e-mail. 
+Assim, segue abaixo as credenciais criadas para que seja testado essa funcionalidade:
+
+- User: user
+- E-mail: user@email.com
 
 <br>
 
@@ -31,7 +39,6 @@ O repositório contendo o código deste projeto pode ser acessado através deste
 
 - Talita Aya Sakamoto Kuriki
 
-  
 <br>
 
 ## 📑 Requisitos
@@ -44,18 +51,18 @@ O repositório contendo o código deste projeto pode ser acessado através deste
 
 4. Alterar a ordenação dos problemas por nível de dificuldade tanto de modo ascendente como descendente; ✅
 
-5. Escolher um problema a ser resolvido:
+5. Escolher um problema a ser resolvido: ✅
 
   
     > Avisar o usuário se o problema escolhido já foi resolvido anteriormente, caso já tenha sido resolvido, perguntar se deseja resolver novamente;
 
   
 
-6. Permitir ao usuário a inserção dos dados de entrada e a saída calculada do exercício em questão;
+6. Permitir ao usuário a inserção dos dados de entrada e a saída calculada do exercício em questão; ✅
 
-7. Apresentar o resultado (saída correta) e comparar com o valor inserido pelo usuário, indicando se o usuário acertou ou errou a resolução;
+7. Apresentar o resultado (saída correta) e comparar com o valor inserido pelo usuário, indicando se o usuário acertou ou errou a resolução; ✅
 
-8. Permitir a consulta de problemas que já foram resolvidos pelo usuário;
+8. Permitir a consulta de problemas que já foram resolvidos pelo usuário; 
 
 9. Alterar o nível de dificuldade de um problema já resolvido;
 
