@@ -154,7 +154,7 @@ export default function Problemas() {
           label="Resposta"
           variant="outlined"
           margin="normal"
-          style={{ width: 500 }}
+          style={{ width: 600 }}
           onChange={handleInputChange}
         />
         <div className="question-button">
