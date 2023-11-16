@@ -4,7 +4,7 @@ import { Button, TextField, styled, Avatar } from "@mui/material";
 import { useNavigate } from "react-router";
 import { AuthContext } from "../../Context/AuthContext";
 import { db } from "../../Firebase/firebase-config";
-import { collection, getDocs, getDoc, doc, setDoc } from "firebase/firestore";
+import { collection, getDoc, doc, setDoc } from "firebase/firestore";
 import figura1 from "../../Assets/figura1.jpg";
 import figura2 from "../../Assets/figura2.png";
 import figura3 from "../../Assets/figura3.png";
@@ -187,7 +187,7 @@ export default function Problemas() {
           )}
           {wrongAnswer && (
             <div className="negative-feedback">
-              <span>Resposta errada! O valor correto é a alternativa {resposta+")"}!</span>
+              <span>Resposta errada! A alternativa correta é a {resposta+")"}!</span>
             </div>
           )}
         </div>
