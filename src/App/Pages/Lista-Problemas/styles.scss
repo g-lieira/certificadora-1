@@ -21,10 +21,10 @@
     .icon-perfil {
       display: flex;
       align-items: center;
-      justify-content: space-around;
-      width: 15%;
+      justify-content: left;
+      width: auto;
       border: 3px solid #B05F6D;
-      padding: 10px;
+      padding: 10px 20px;
       border-radius: 15px;
       cursor: pointer;
 
@@ -36,6 +36,7 @@
     p {
       font-family: 'Lato', sans-serif;
       font-size: 16px;
+      padding-left: 10px;
     }
   }
 }
