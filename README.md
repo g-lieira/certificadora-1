@@ -6,7 +6,8 @@
 
 Este projeto será composto pelo desenvolvimento de um sistema web com o objetivo de auxiliar no ensino-aprendizagem de Física, podendo ser utilizado por docentes e discentes do Ensino Médio.
 
-❗ Vídeo de apresentação parcial do projeto: [link](https://drive.google.com/file/d/1lD7Bdwz3aVLJGXDZiy6gxUNpux3Zuswe/view?usp=sharing)
+❗ Vídeo de apresentação parcial do projeto: [link](https://drive.google.com/file/d/19M_Jmy8NtLV4ZlakAc-WuRSMVbSNps2y/view?usp=sharing)
+
 
 <br>
 
