@@ -34,6 +34,7 @@ export default function Perfil() {
 
     //coloração do progresso de exercícios 
     const progressClass = resolved ? 'exercise resolved' : 'exercise not-resolved';
+    const progressClass2 = resolved ? 'exercise not-resolved' : 'exercise resolved';
 
     return (
         <div className='perfil-container'>
@@ -89,31 +90,31 @@ export default function Perfil() {
                         <div>
                             <div>
                                 <svg >
-                                    <circle className={progressClass} cx="30" cy="30" r="30"/>
+                                    <circle className={progressClass2} cx="30" cy="30" r="30"/>
                                 </svg>
                                 <div>6</div>
                             </div>
                             <div>
                                 <svg >
-                                    <circle className={progressClass} cx="30" cy="30" r="30"/>
+                                    <circle className={progressClass2} cx="30" cy="30" r="30"/>
                                 </svg>
                                 <div>7</div>
                             </div>
                             <div>
                                 <svg >
-                                    <circle className={progressClass} cx="30" cy="30" r="30"/>
+                                    <circle className={progressClass2} cx="30" cy="30" r="30"/>
                                 </svg>
                                 <div>8</div>
                             </div>
                             <div>
                                 <svg >
-                                    <circle className={progressClass} cx="30" cy="30" r="30"/>
+                                    <circle className={progressClass2} cx="30" cy="30" r="30"/>
                                 </svg>
                                 <div>9</div>
                             </div>
                             <div>
                                 <svg >
-                                    <circle className={progressClass} cx="30" cy="30" r="30"/>
+                                    <circle className={progressClass2} cx="30" cy="30" r="30"/>
                                 </svg>
                                 <div>10</div>
                             </div>
