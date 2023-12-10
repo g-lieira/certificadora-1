@@ -9,6 +9,9 @@ const PublicRoutes = () => {
         <Routes>
           <Route path="/" element={<Home/>}/>
           <Route path="/login" element={<Login/>}/>
+          <Route path="/lista-problemas" element={<Login/>}/>
+          <Route path="/problema" element={<Login/>}/>
+          <Route path="/perfil" element={<Login/>}/>
         </Routes>
       </BrowserRouter>
   )

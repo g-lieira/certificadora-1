@@ -20,7 +20,7 @@
         div {
             display: flex;
             flex-direction: column;
-            gap: 30px;
+            gap: 25px;
 
             h1 {
                 font-family: 'Lato';
@@ -39,6 +39,21 @@
                 font-weight: 400;
                 background-color: #9E7D9E;
                 color: #fff;
+            }
+            button{
+                display: flex;
+                align-items: center;
+                width: fit-content;
+                height: fit-content;
+                border: none;
+                font-family: 'Lato';
+                font-size: 15px;
+                padding: 5px;
+                border-radius: 10px;
+                font-weight: 400;
+                background-color: #B05F6D;
+                color: #fff;
+                cursor: pointer;
             }
         }
 

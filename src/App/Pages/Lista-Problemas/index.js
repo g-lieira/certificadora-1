@@ -205,6 +205,7 @@ export default function ListaProblemas() {
   const [userQuestions, setUserQuestions] = useState("");
   const {setCurrentQuestion} = useContext(AuthContext);
   const [userName, setUserName] = useState("");
+  const [userlevels, setUserLevels] = useState([]);
 
   // importando informações do backend
 
@@ -219,6 +220,7 @@ export default function ListaProblemas() {
       }catch{
         setUserQuestions("0");
       }
+      setUserLevels(docSnap.data().niveis)
     })
 
     const getQuestions= async () => {
@@ -227,15 +229,26 @@ export default function ListaProblemas() {
     };
     getQuestions();
   },[]);
+  useEffect(()=>{
+    rows=[];
+    questions.map(question=>{
+      rows.unshift(createData(question.numero+" – "+question.enunciado, userlevels[question.numero]));
+      return null;
+    });
+    var jsonObject = rows.map(JSON.stringify);
+    var uniqueSet = new Set(jsonObject);
+    var uniqueArray = Array.from(uniqueSet).map(JSON.parse);
+    rows = uniqueArray;
+  });
 
   questions.map(question=>{
-    rows.unshift(createData(question.enunciado, question.nivel));
+    rows.unshift(createData(question.numero+" – "+question.enunciado, userlevels[question.numero]));
     return null;
   });
 
-  const jsonObject = rows.map(JSON.stringify);
-  const uniqueSet = new Set(jsonObject);
-  const uniqueArray = Array.from(uniqueSet).map(JSON.parse);
+  var jsonObject = rows.map(JSON.stringify);
+  var uniqueSet = new Set(jsonObject);
+  var uniqueArray = Array.from(uniqueSet).map(JSON.parse);
 
   rows = uniqueArray;
 
@@ -264,7 +277,7 @@ export default function ListaProblemas() {
   const navigate = useNavigate();
     function navigateToPerfil(){
         navigate("/perfil");
-      }
+    }
 
 
   function modalRedirect(){
@@ -276,7 +289,8 @@ export default function ListaProblemas() {
     let questionNumber;
     let isAlreadyDone=false;
     let isValid=false;
-    let array = userQuestions.split("-");
+    statement = statement.split("– ")[1];
+    let array = userQuestions;
     questions.map(question =>{
       if(question.enunciado==statement){
         questionId = question.id;
