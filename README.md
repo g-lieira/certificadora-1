@@ -1,4 +1,4 @@
-# Certificadora 1 (em desenvolvimento)
+# Certificadora 1
 
 <img src="src/App/Assets/github-cover.png" alt="capa do projeto" />
 
@@ -6,7 +6,7 @@
 
 Este projeto será composto pelo desenvolvimento de um sistema web com o objetivo de auxiliar no ensino-aprendizagem de Física, podendo ser utilizado por docentes e discentes do Ensino Médio.
 
-❗ Vídeo de apresentação parcial do projeto: [link](https://drive.google.com/file/d/1BZTF4TN1lkM5yTuvw3iB18qe4XnyC7F7/view?usp=sharing)
+❗ Vídeo de apresentação final do projeto: [link](https://drive.google.com/file/d/1BZTF4TN1lkM5yTuvw3iB18qe4XnyC7F7/view?usp=sharing)
 
 
 <br>
@@ -88,7 +88,11 @@ Assim, segue abaixo as credenciais criadas para que seja testado essa funcionali
 
 - Para cada acerto de problemas do nível 3 o usuário recebe 500 pontos;
 
-- Caso o usuário escolha um problema que já foi resolvido a cada nova tentativa a pontuação do problema é dividida por 2.
+- Caso o usuário escolha um problema que já foi resolvido a cada nova tentativa a pontuação do problema é dividida por 2;
+
+- Alteração do nível de dificuldade de um problema já resolvido:
+    - Ao acertar uma questão de primeira, o nível da mesma cai -1, sendo o mínimo nível 1;
+    - A cada resposta errada, o nível do problema aumenta +1, sendo o máximo nível 3.
 
   
   
