@@ -6,7 +6,7 @@
 
 Este projeto será composto pelo desenvolvimento de um sistema web com o objetivo de auxiliar no ensino-aprendizagem de Física, podendo ser utilizado por docentes e discentes do Ensino Médio.
 
-❗ Vídeo de apresentação parcial do projeto: [link](https://drive.google.com/file/d/19M_Jmy8NtLV4ZlakAc-WuRSMVbSNps2y/view?usp=sharing)
+❗ Vídeo de apresentação parcial do projeto: [link](https://drive.google.com/file/d/1BZTF4TN1lkM5yTuvw3iB18qe4XnyC7F7/view?usp=sharing)
 
 
 <br>
@@ -63,11 +63,11 @@ Assim, segue abaixo as credenciais criadas para que seja testado essa funcionali
 
 7. Apresentar o resultado (saída correta) e comparar com o valor inserido pelo usuário, indicando se o usuário acertou ou errou a resolução; ✅
 
-8. Permitir a consulta de problemas que já foram resolvidos pelo usuário; 
+8. Permitir a consulta de problemas que já foram resolvidos pelo usuário; ✅
 
-9. Alterar o nível de dificuldade de um problema já resolvido;
+9. Alterar o nível de dificuldade de um problema já resolvido; ✅
 
-10. Exibir a pontuação atual do usuário.
+10. Exibir a pontuação atual do usuário. ✅
 
   
 <br> 
