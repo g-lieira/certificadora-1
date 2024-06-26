@@ -6,17 +6,7 @@
 
 Este projeto será composto pelo desenvolvimento de um sistema web com o objetivo de auxiliar no ensino-aprendizagem de Física, podendo ser utilizado por docentes e discentes do Ensino Médio.
 
-❗ Vídeo de apresentação final do projeto: [link](https://drive.google.com/file/d/1BZTF4TN1lkM5yTuvw3iB18qe4XnyC7F7/view?usp=sharing)
-
-
 <br>
-
-## 🗳️ Repositório
-
-O repositório contendo o código deste projeto pode ser acessado através deste [link](https://github.com/g-lieira/certificadora-1.git).
-
-<br>
-
 
 ## 🔑 Credenciais para login
 
@@ -28,15 +18,11 @@ Assim, segue abaixo as credenciais criadas para que seja testado essa funcionali
 
 <br>
 
-## 👨‍💻 Equipe
+## 👨‍💻 Desenvolvido por:
 
 - Gabriela Maria Lieira
 
-- Gabrielle Avelino Saad do Bonfim
-
 - Felipe Kauã de Lima
-
-- Fernando Lima Fernandes
 
 - Talita Aya Sakamoto Kuriki
 
